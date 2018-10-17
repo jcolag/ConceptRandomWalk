@@ -1,0 +1,19 @@
+{
+  "name": "conceptrandomwalk",
+  "version": "1.0.0",
+  "description": "Random bumbling through ConceptNet.io",
+  "main": "concept.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcolag/ConceptRandomWalk.git"
+  },
+  "author": "John Colagioia",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jcolag/ConceptRandomWalk/issues"
+  },
+  "homepage": "https://github.com/jcolag/ConceptRandomWalk#readme"
+}
