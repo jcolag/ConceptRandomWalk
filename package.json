@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jcolag/ConceptRandomWalk/issues"
   },
-  "homepage": "https://github.com/jcolag/ConceptRandomWalk#readme"
+  "homepage": "https://github.com/jcolag/ConceptRandomWalk#readme",
+  "dependencies": {
+    "rest": "^2.0.0"
+  }
 }
