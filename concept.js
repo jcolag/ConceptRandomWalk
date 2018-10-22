@@ -23,6 +23,10 @@ rest(`http://api.conceptnet.io/c/en/${word}`)
     processWord(graph);
   });
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function processWord(wordObj) {
   console.log(wordObj.edges.length);
 }
