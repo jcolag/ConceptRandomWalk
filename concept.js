@@ -11,11 +11,13 @@ if (fs.existsSync(`${word}.json`)) {
   console.log(`Already have "${word}"...`);
   graph = JSON.parse(fs.readFileSync(`${word}.json`))
   processWord(graph);
+} else {
   getWord(word, []).then(graph => {
     fs.writeFileSync(`${word}.json`, JSON.stringify(graph, null, 4));
     console.log(`New word written to ${word}.json...`);
     processWord(graph);
   });
+}
 
 async function getWord(word, prevBatch) {
   const urlSite = 'http://api.conceptnet.io';
