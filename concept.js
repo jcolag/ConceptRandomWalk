@@ -25,7 +25,7 @@ async function getWord(word, prevBatch) {
     : `${urlSite}${urlPrefix}${word}`;
   let done = false;
   let result = await rest(url).then(r => {
-    result = JSON.parse(r.entity);
+    let result = JSON.parse(r.entity);
     result.edges = result.edges.concat(prevBatch);
     if (result.hasOwnProperty('view') && result.view.hasOwnProperty('nextPage')) {
       result = getWord(result.view.nextPage, result.edges).then(r => {
