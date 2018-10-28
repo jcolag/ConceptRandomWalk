@@ -50,4 +50,13 @@ function sleep(ms) {
 function processWord(wordObj) {
 }
 
+function randomLabel(list, name) {
+  try {
+    const which = Math.floor(Math.random() * list[name].length);
+    return list[name][which].label;
+  } catch(e) {
+    console.log(`${name} doesn't have any items...`);
+  }
+  return '<nothing>';
+}
 
