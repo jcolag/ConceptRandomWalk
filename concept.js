@@ -48,6 +48,29 @@ function sleep(ms) {
 }
 
 function processWord(wordObj) {
+  const relations = {};
+  const edges = wordObj.edges;
+  
+  // Organize the edges by concept
+  for (var i = 0; i < edges.length; i++) {
+    const edge = edges[i];
+    const rel = edge.rel;
+    if (!relations.hasOwnProperty(rel.label)) {
+      relations[rel.label] = [];
+    }
+    relations[rel.label].push(edge.end);
+  }
+
+  const use = randomLabel(relations, 'UsedFor');
+  const rec = randomLabel(relations, 'ReceivesAction');
+  const prop = randomLabel(relations, 'HasProperty');
+  const part = randomLabel(relations, 'HasA');
+  var prep = 'to';
+  if (use.indexOf('ing') > -1) {
+    prep = 'for';
+  }
+
+  console.log(`Use a ${word} ${prep} ${use}; it's ${rec} and may be ${prop}! Oh, and watch out for the ${part}...'`);
 }
 
 function randomLabel(list, name) {
