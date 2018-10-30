@@ -66,20 +66,24 @@ function processWord(wordObj) {
   const prop = randomLabel(relations, 'HasProperty');
   const part = randomLabel(relations, 'HasA');
   var prep = 'to';
-  if (use.indexOf('ing') > -1) {
+  if (use.text.indexOf('ing') > -1) {
     prep = 'for';
   }
 
-  console.log(`Use a ${word} ${prep} ${use}; it's ${rec} and may be ${prop}! Oh, and watch out for the ${part}...'`);
+  console.log(`Use a ${word} ${prep} ${use.text}; it's ${rec.text} and may be ${prop.text}! Oh, and watch out for the ${part.text}...'`);
 }
 
 function randomLabel(list, name) {
   try {
     const which = Math.floor(Math.random() * list[name].length);
-    return list[name][which].label;
+    return {
+      text: list[name][which].label,
+    };
   } catch(e) {
     console.log(`${name} doesn't have any items...`);
   }
-  return '<nothing>';
+  return {
+    text: '<nothing>',
+  };
 }
 
