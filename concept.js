@@ -78,6 +78,7 @@ function randomLabel(list, name) {
     const which = Math.floor(Math.random() * list[name].length);
     return {
       text: list[name][which].label,
+      url: list[name][which]['@id'],
     };
   } catch(e) {
     console.log(`${name} doesn't have any items...`);
