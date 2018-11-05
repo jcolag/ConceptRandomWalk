@@ -1,6 +1,8 @@
 const rest = require('rest');
 const fs = require('fs');
 
+const urlSite = 'http://api.conceptnet.io';
+
 var word = 'example';
 var graph;
 if (process.argv.length > 2) {
@@ -18,7 +20,6 @@ if (fs.existsSync(`${word}.json`)) {
 }
 
 async function getWord(word, prevBatch) {
-  const urlSite = 'http://api.conceptnet.io';
   const urlPrefix = '/c/en/';
   const url = word.indexOf(urlPrefix) === 0
     ? `${urlSite}${word}`
