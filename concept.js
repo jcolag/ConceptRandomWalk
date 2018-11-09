@@ -11,11 +11,11 @@ if (process.argv.length > 2) {
 
 if (fs.existsSync(`${word}.json`)) {
   graph = JSON.parse(fs.readFileSync(`${word}.json`))
-  processWord(graph);
+  processWord(word, graph);
 } else {
   getWord(word, []).then(graph => {
     fs.writeFileSync(`${word}.json`, JSON.stringify(graph, null, 4));
-    processWord(graph);
+    processWord(word, graph);
   });
 }
 
@@ -48,7 +48,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function processWord(wordObj) {
+function processWord(word, wordObj) {
   const relations = {};
   const edges = wordObj.edges;
   
