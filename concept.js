@@ -71,7 +71,7 @@ function processWord(word, wordObj) {
     prep = 'for';
   }
 
-  console.log(`Use a ${word} ${prep} ${use.text}; it's ${rec.text} and may be ${prop.text}! Oh, and watch out for the ${part.text}...'`);
+  console.log(`Use a ${word} ${prep} ${use.text}; it's ${rec.text} and may be ${prop.text}! Oh, and watch out for the ${part.text}...`);
 }
 
 function randomLabel(list, name) {
