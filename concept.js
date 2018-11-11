@@ -59,13 +59,13 @@ function processWord(word, wordObj) {
     if (!relations.hasOwnProperty(rel.label)) {
       relations[rel.label] = [];
     }
-    relations[rel.label].push(edge.end);
+    relations[rel.label].push(rel.label === 'PartOf' ? edge.start : edge.end);
   }
 
   const use = randomLabel(relations, 'UsedFor');
   const rec = randomLabel(relations, 'ReceivesAction');
   const prop = randomLabel(relations, 'HasProperty');
-  const part = randomLabel(relations, 'HasA');
+  const part = randomLabel(relations, 'PartOf');
   var prep = 'to';
   if (use.text.indexOf('ing') > -1) {
     prep = 'for';
