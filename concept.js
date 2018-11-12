@@ -72,6 +72,16 @@ function processWord(word, wordObj) {
   }
 
   console.log(`Use a ${word} ${prep} ${use.text}; it's ${rec.text} and may be ${prop.text}! Oh, and watch out for the ${part.text}...`);
+  if (part.hasOwnProperty('url') && part.text !== word) {
+    getWord(part.text, []).then(graph => {
+      const filename = `${part.text}.json`;
+      if (!fs.existsSync(filename)) {
+        fs.writeFileSync(filename, JSON.stringify(graph, null, 4));
+      }
+
+      processWord(part.text, graph);
+    });
+  }
 }
 
 function randomLabel(list, name) {
