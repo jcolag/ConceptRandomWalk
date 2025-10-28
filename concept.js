@@ -1,7 +1,7 @@
 const rest = require('rest');
 const fs = require('fs');
 
-const urlSite = 'http://api.conceptnet.io';
+const urlSite = 'https://api.conceptnet.io:443';
 
 var word = 'example';
 var graph;
